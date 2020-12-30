@@ -53,7 +53,10 @@ if __name__ == '__main__':
 
         # with no points
         for (pp, sample_p) in enumerate(sample_ps):
-            img_path = [string.replace('%08d_%.3f' % (i, sample_p), '.', 'p')]
+            path = '%08d_%.3f' % (i, sample_p)
+            path.replace('.', 'p')
+            img_path = [path]
+            # img_path = [string.replace('%08d_%.3f' % (i, sample_p), '.', 'p')]
             data = util.get_colorization_data(data_raw, opt, ab_thresh=0., p=sample_p)
 
             model.set_input(data)
